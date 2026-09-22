@@ -1,6 +1,6 @@
 # numpy-neural-net
 
-Нейронная сеть с вручную выведенным градиентом и разведка данных методом главных компонент, на чистом NumPy, без фреймворков глубокого обучения.
+Нейронная сеть с вручную выведенным градиентом, снижение размерности методом главных компонент и кластеризация k-means — на чистом NumPy, без фреймворков глубокого обучения.
 
 [![Сеть в Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yoonzky/numpy-neural-net/blob/main/three_neuron_net.ipynb)
 [![PCA в Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yoonzky/numpy-neural-net/blob/main/pca_kmeans.ipynb)
@@ -17,7 +17,7 @@
 ## pca_kmeans.ipynb
 
 - Три двумерных облака по 400 точек: два нормальных, одно равномерное.
-- Расширение до пяти признаков: x3 = x1 + x2, x4 = ln|x1| + 1 + x2, x5 = sin(x1·x2). Логарифм взят от модуля, иначе при отрицательных x1 он не определён.
+- Расширение до пяти признаков: x3 = x1 + x2, x4 = ln(|x1| + 1) + x2, x5 = sin(x1·x2). Под логарифм идёт модуль плюс единица, иначе при отрицательных x1 он не определён.
 - PCA снижает размерность обратно до двух, дальше k-means (`n_init='auto'`).
 - Число кластеров проверяется по silhouette score перебором k от 2 до 5: оптимум совпадает с тремя исходными облаками.
 
